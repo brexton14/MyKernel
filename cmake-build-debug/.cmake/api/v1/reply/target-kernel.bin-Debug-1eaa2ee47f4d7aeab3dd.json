@@ -56,7 +56,8 @@
 			},
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -96,7 +97,8 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -112,6 +114,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "src/kernel.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/print.c",
 			"sourceGroupIndex" : 1
 		}
 	],

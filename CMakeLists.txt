@@ -27,6 +27,7 @@ enable_language(ASM_NASM)
 add_executable(kernel.bin
         src/boot.asm
         src/kernel.c
+        src/print.c
 )
 
 # Prevent outputting a .exe suffix

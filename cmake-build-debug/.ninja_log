@@ -1,5 +1,7 @@
 # ninja log v6
-1	16	7707882338730557	CMakeFiles/kernel.bin.dir/src/boot.asm.obj	42af38d25085169a
-3	38	7707882338751280	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	91b164f85d4c3ec
-1	42	7707889282966363	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	91b164f85d4c3ec
-42	81	7707889283373912	kernel.bin	8083125082b90b70
+1	8	7707978360400884	CMakeFiles/kernel.bin.dir/src/boot.asm.obj	42af38d25085169a
+3	44	7707978360421190	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	91b164f85d4c3ec
+44	83	7707978360831913	kernel.bin	8083125082b90b70
+1	37	7707981207696383	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	91b164f85d4c3ec
+3	47	7707981207726725	CMakeFiles/kernel.bin.dir/src/print.c.obj	67eea631dacb79fe
+47	84	7707981208158957	kernel.bin	1e7bd865218d2798
