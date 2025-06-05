@@ -1,0 +1,3 @@
+C:/Kernel/cmake-build-debug/CMakeFiles/kernel.bin.dir
+C:/Kernel/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Kernel/cmake-build-debug/CMakeFiles/rebuild_cache.dir
