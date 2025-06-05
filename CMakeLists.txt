@@ -28,6 +28,7 @@ add_executable(kernel.bin
         src/boot.asm
         src/kernel.c
         src/print.c
+        src/keyboard.c
 )
 
 # Prevent outputting a .exe suffix
