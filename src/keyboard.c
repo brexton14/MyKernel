@@ -1,6 +1,6 @@
 #include <stdint.h>
-#include "print.h"
-
+#include "../include/print.h"
+#include "../include/stdlib.h"
 #define KEYBOARD_PORT 0x60
 #define KEYBOARD_STATUS_PORT 0x64
 #define BUFFER_SIZE 256
@@ -46,14 +46,6 @@ uint8_t inb_status(uint16_t port) {
     return ret;
 }
 
-// Mini version of strcmp (no stdlib)
-int strcmp(const char* s1, const char* s2) {
-    while (*s1 && (*s1 == *s2)) {
-        s1++;
-        s2++;
-    }
-    return *(const unsigned char*)s1 - *(const unsigned char*)s2;
-}
 // Simple shell command handler
 void handle_command(const char* input) {
     if (strcmp(input, "clear") == 0) {
@@ -62,7 +54,7 @@ void handle_command(const char* input) {
     } else if (strcmp(input, "help") == 0) {
         print("Available commands: help, clear\n> ");
     } else {
-        print("Unknown command\n> ");
+        print("\n> ");
     }
 }
 

@@ -1,5 +1,6 @@
-#include "print.h"
-#include "keyboard.h"
+#include "../include/print.h"
+#include "../include/keyboard.h"
+#include "../include/kstdio.h"
 
 #ifdef __cplusplus                      //ensures c++ is not being used to compile
 extern "C" {
@@ -15,7 +16,7 @@ void kernel_main(){
     clear_screen(); // Wipe the screen
 
     print("Welcome to BrextonOS!\n");
-    print("Type something:\n> ");
+    kprintf("Kernel version: %d.%d\n", 0, 1);
 
     while (1){
         keyboard_handler();

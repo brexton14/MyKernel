@@ -25,10 +25,12 @@ enable_language(ASM_NASM)
 
 # Output raw binary instead of .exe
 add_executable(kernel.bin
-        src/boot.asm
+        boot/boot.asm
         src/kernel.c
-        src/print.c
         src/keyboard.c
+        lib/print.c
+        lib/kstdio.c
+        lib/stdlib.c
 )
 
 # Prevent outputting a .exe suffix

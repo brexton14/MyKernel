@@ -49,19 +49,13 @@ cmake_ninja_workdir = C$:/Kernel/cmake-build-debug/
 
 build cmake_object_order_depends_target_kernel.bin: phony || CMakeFiles/kernel.bin.dir
 
-build CMakeFiles/kernel.bin.dir/src/boot.asm.obj: ASM_NASM_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/src/boot.asm || cmake_object_order_depends_target_kernel.bin
-  DEP_FILE = CMakeFiles\kernel.bin.dir\src\boot.asm.obj.d
+build CMakeFiles/kernel.bin.dir/boot/boot.asm.obj: ASM_NASM_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/boot/boot.asm || cmake_object_order_depends_target_kernel.bin
+  DEP_FILE = CMakeFiles\kernel.bin.dir\boot\boot.asm.obj.d
   OBJECT_DIR = CMakeFiles\kernel.bin.dir
-  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\src
+  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\boot
 
 build CMakeFiles/kernel.bin.dir/src/kernel.c.obj: C_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/src/kernel.c || cmake_object_order_depends_target_kernel.bin
   DEP_FILE = CMakeFiles\kernel.bin.dir\src\kernel.c.obj.d
-  FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g -std=gnu99 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\kernel.bin.dir
-  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\src
-
-build CMakeFiles/kernel.bin.dir/src/print.c.obj: C_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/src/print.c || cmake_object_order_depends_target_kernel.bin
-  DEP_FILE = CMakeFiles\kernel.bin.dir\src\print.c.obj.d
   FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\kernel.bin.dir
   OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\src
@@ -72,6 +66,24 @@ build CMakeFiles/kernel.bin.dir/src/keyboard.c.obj: C_COMPILER__kernel.2ebin_uns
   OBJECT_DIR = CMakeFiles\kernel.bin.dir
   OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\src
 
+build CMakeFiles/kernel.bin.dir/lib/print.c.obj: C_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/lib/print.c || cmake_object_order_depends_target_kernel.bin
+  DEP_FILE = CMakeFiles\kernel.bin.dir\lib\print.c.obj.d
+  FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\kernel.bin.dir
+  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\lib
+
+build CMakeFiles/kernel.bin.dir/lib/kstdio.c.obj: C_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/lib/kstdio.c || cmake_object_order_depends_target_kernel.bin
+  DEP_FILE = CMakeFiles\kernel.bin.dir\lib\kstdio.c.obj.d
+  FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\kernel.bin.dir
+  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\lib
+
+build CMakeFiles/kernel.bin.dir/lib/stdlib.c.obj: C_COMPILER__kernel.2ebin_unscanned_Debug C$:/Kernel/lib/stdlib.c || cmake_object_order_depends_target_kernel.bin
+  DEP_FILE = CMakeFiles\kernel.bin.dir\lib\stdlib.c.obj.d
+  FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\kernel.bin.dir
+  OBJECT_FILE_DIR = CMakeFiles\kernel.bin.dir\lib
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target kernel.bin
@@ -80,7 +92,7 @@ build CMakeFiles/kernel.bin.dir/src/keyboard.c.obj: C_COMPILER__kernel.2ebin_uns
 #############################################
 # Link the executable kernel.bin
 
-build kernel.bin: C_EXECUTABLE_LINKER__kernel.2ebin_Debug CMakeFiles/kernel.bin.dir/src/boot.asm.obj CMakeFiles/kernel.bin.dir/src/kernel.c.obj CMakeFiles/kernel.bin.dir/src/print.c.obj CMakeFiles/kernel.bin.dir/src/keyboard.c.obj
+build kernel.bin: C_EXECUTABLE_LINKER__kernel.2ebin_Debug CMakeFiles/kernel.bin.dir/boot/boot.asm.obj CMakeFiles/kernel.bin.dir/src/kernel.c.obj CMakeFiles/kernel.bin.dir/src/keyboard.c.obj CMakeFiles/kernel.bin.dir/lib/print.c.obj CMakeFiles/kernel.bin.dir/lib/kstdio.c.obj CMakeFiles/kernel.bin.dir/lib/stdlib.c.obj
   FLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -g
   LINK_FLAGS = -T C:/Kernel/linker.ld -nostdlib -static
   OBJECT_DIR = CMakeFiles\kernel.bin.dir
