@@ -1,10 +1,10 @@
 ENTRY(_start)
 
 SECTIONS {
-    . = 0x100000; /* Loading address for Kernel at 1mb */
+    . = 1M; /* Loading address for Kernel at 1mb */
 
     .text : ALIGN(4K) {
-        *(.multiboot) /* Multiboot header must be first required by GRUB*/
+        *(.multiboot2) /* Multiboot header must be first required by GRUB*/
         *(.text*) /* All code is entered in here -boot.asm*/
     }
 

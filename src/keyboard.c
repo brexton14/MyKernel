@@ -35,15 +35,9 @@ const unsigned char scancode_to_ascii_shift[] = {
 
 // Read byte from I/O port
 uint8_t inb(uint16_t port) {
-    uint8_t ret;
-    __asm__ __volatile__ ("inb %1, %0" : "=a"(ret) : "Nd"(port));
-    return ret;
-}
-// Check keyboard status port
-uint8_t inb_status(uint16_t port) {
-    uint8_t ret;
-    __asm__ __volatile__ ("inb %1, %0" : "=a"(ret) : "Nd"(port));
-    return ret;
+    uint8_t result;
+    __asm__ __volatile__ ("inb %1, %0" : "=a"(result) : "Nd"(port));
+    return result;
 }
 
 // Simple shell command handler
@@ -53,14 +47,14 @@ void handle_command(const char* input) {
         print("> ");
     } else if (strcmp(input, "help") == 0) {
         print("Available commands: help, clear\n> ");
-    } else {
-        print("\n> ");
     }
+    print("\n> ");
+
 }
 
 // Keyboard input handler
 void keyboard_handler() {
-    uint8_t status = inb_status(KEYBOARD_STATUS_PORT);
+    uint8_t status = inb(KEYBOARD_STATUS_PORT);
     if ((status & 0x01) == 0) {
         return; // no data ready
     }
@@ -70,20 +64,15 @@ void keyboard_handler() {
 
     // Shift pressed
     if (scancode == 0x2A || scancode == 0x36) {
-        shift_pressed = 1;
-        return;
+        shift_pressed = 1; return;
     }
-
     // Shift released
     if (scancode == 0xAA || scancode == 0xB6) {
-        shift_pressed = 0;
-        return;
+        shift_pressed = 0; return;
     }
-
     // Caps Lock toggled
     if (scancode == 0x3A) {
-        capslock_enabled = !capslock_enabled;
-        return;
+        capslock_enabled = !capslock_enabled; return;
     }
 
     // Ignore release scancodes, extended scancodes, and invalid range
@@ -94,51 +83,35 @@ void keyboard_handler() {
     // --- Character translation ---
 
     // Choose correct table
-    char c = (char)(shift_pressed ? scancode_to_ascii_shift[scancode]
-                                  : scancode_to_ascii[scancode]);
-
+    char c = (char)(shift_pressed ? scancode_to_ascii_shift[scancode]: scancode_to_ascii[scancode]);
     // Apply CapsLock logic to letters
-    if (c >= 'a' && c <= 'z') {
-        if (capslock_enabled ^ shift_pressed) {
-            c -= 32; // convert to uppercase
-        }
+    if (c >= 'a' && c <= 'z' && (capslock_enabled ^ shift_pressed)) {
+        c -= 32;
     }
 
     // Skip unmapped characters
     if (!c) return;
 
-
-    if (c == '\b') {
-        if (buffer_index > 0) {
-            buffer_index--;
-            input_buffer[buffer_index] = '\0';
-
-            // Erase character from screen visually
-            putchar('\b');
-            putchar(' ');
-            putchar('\b');
-        }
+    // Handle backspace
+    if (c == '\b' && buffer_index > 0) {
+        buffer_index--;
+        input_buffer[buffer_index] = '\0';
+        putchar('\b'); putchar(' '); putchar('\b');
+        return;
     }
-
-    else if (c == '\n'){
-        // Handle enter key
+    // Handle Enter key
+    if (c == '\n'){
         putchar('\n');
         handle_command(input_buffer);
-        putchar('\n'); // Clear the buffer for next input
-
-        // reset buffer
         buffer_index = 0;
         input_buffer[0] = '\0';
-
-        print("> "); // Show new input prompt
+        return;
+    }
+    // Add normal character to buffer
+    if (buffer_index < BUFFER_SIZE - 1) {
+        input_buffer[buffer_index++] = c;
+        input_buffer[buffer_index] = '\0';
+        putchar(c);
     }
 
-    else {
-        // Normal printable character
-        if (buffer_index < BUFFER_SIZE - 1) {
-            input_buffer[buffer_index++] = c;
-            input_buffer[buffer_index] = '\0';
-            putchar(c);
-        }
-    }
 }
