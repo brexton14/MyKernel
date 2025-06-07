@@ -1,0 +1,51 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "NASM",
+				"implicit" : {},
+				"path" : "C:/KernelASM/nasm.exe",
+				"version" : ""
+			},
+			"language" : "ASM_NASM",
+			"sourceFileExtensions" : 
+			[
+				"nasm",
+				"asm"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Kernel Enviroment/lib/gcc/x86_64-elf/13.2.0/include",
+						"C:/Kernel Enviroment/lib/gcc/x86_64-elf/13.2.0/include-fixed"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "C:/Kernel Enviroment/bin/x86_64-elf-gcc-13.2.0.exe",
+				"version" : "13.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

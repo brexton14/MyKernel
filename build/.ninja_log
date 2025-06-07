@@ -1,0 +1,8 @@
+# ninja log v6
+2	22	7709645042288561	CMakeFiles/kernel.bin.dir/boot/boot.asm.obj	e759e0ff7a530b3b
+6	53	7709645042288561	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	9c1e9e836574844c
+18	71	7709645042447208	CMakeFiles/kernel.bin.dir/lib/stdlib.c.obj	faacdd4172b56b2b
+12	72	7709645042288561	CMakeFiles/kernel.bin.dir/lib/print.c.obj	4376011a31226519
+15	77	7709645042288561	CMakeFiles/kernel.bin.dir/lib/kstdio.c.obj	17a17dc80519f7fe
+9	79	7709645042288561	CMakeFiles/kernel.bin.dir/src/keyboard.c.obj	a5ea7ab4e69570f1
+80	123	7709645043079816	kernel.bin	61f4cff56b872f72

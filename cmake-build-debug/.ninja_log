@@ -1,0 +1,16 @@
+# ninja log v6
+1	18	7709708533189576	CMakeFiles/kernel.bin.dir/boot/boot.asm.obj	e759e0ff7a530b3b
+4	60	7709718826114415	CMakeFiles/kernel.bin.dir/lib/print.c.obj	2de0a3c6ebbadce6
+4	49	7709708533209877	CMakeFiles/kernel.bin.dir/src/kernel.c.obj	fabbb54fda902efb
+2	55	7709718826094038	CMakeFiles/kernel.bin.dir/src/keyboard.c.obj	ab3487267de906e4
+9	59	7709718826164786	CMakeFiles/kernel.bin.dir/lib/stdlib.c.obj	728feb3588d4f373
+2	54	7709719174237589	CMakeFiles/kernel.bin.dir/lib/kstdio.c.obj	9229aaf97e8e7db4
+54	104	7709719174760787	kernel.bin	14cd595793f7909e
+1	77	7709722832684052	build.ninja	34864a5f043c4cf7
+1	22	7709724137733167	CMakeFiles/kernel.elf.dir/boot/boot.asm.obj	40b18dcffbdfa78c
+4	46	7709724137845025	CMakeFiles/kernel.elf.dir/src/kernel.c.obj	1805010242772c42
+8	56	7709724137904059	CMakeFiles/kernel.elf.dir/src/keyboard.c.obj	ac9204fac5bae1bd
+14	65	7709724137962678	CMakeFiles/kernel.elf.dir/lib/kstdio.c.obj	dbbc35565cf056f2
+11	67	7709724137904059	CMakeFiles/kernel.elf.dir/lib/print.c.obj	99858b26ec132720
+18	69	7709724138001378	CMakeFiles/kernel.elf.dir/lib/stdlib.c.obj	fca828eef94ea5f4
+70	113	7709724138473867	kernel.elf	f1681727e36c2db1
