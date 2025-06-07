@@ -1,7 +1,4 @@
-from pathlib import Path
-
-# Define the README content
-readme_content = """# Custom x86 Kernel (NASM + C)
+# Custom x86 Kernel (NASM + C) Brextons Kernel
 
 This is a simple 32-bit operating system kernel built from scratch using NASM and C. It boots directly with QEMU and runs in protected mode without relying on any operating system or standard library.
 
